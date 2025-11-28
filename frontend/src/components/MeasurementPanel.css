@@ -1,0 +1,183 @@
+.measurement-panel {
+  margin-top: 16px;
+  padding: 16px;
+  background: var(--gray-2);
+  border: 1px solid var(--gray-5);
+  border-radius: var(--radius-4);
+}
+
+.measurement-overlay {
+  position: absolute;
+  top: 72px;
+  right: 16px;
+  z-index: 12;
+  width: min(420px, calc(100% - 32px));
+  max-height: calc(100% - 96px);
+  pointer-events: none;
+}
+
+.measurement-panel--overlay {
+  margin-top: 0;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 45px;
+  backdrop-filter: blur(12px);
+  background: color-mix(in srgb, var(--gray-1) 60%, transparent);
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.measurement-panel__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
+}
+
+.measurement-panel__header {
+  flex-wrap: wrap;
+}
+
+.measurement-panel__subtitle {
+  line-height: 1.4;
+}
+
+.measurement-panel__controls {
+  flex-wrap: wrap;
+}
+
+.measurement-panel__input {
+  flex: 1;
+  min-width: 140px;
+}
+
+.measurement-panel__action {
+  min-width: 120px;
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+}
+
+.measurement-panel__action .spin {
+  animation: measurement-spin 1s linear infinite;
+}
+
+@keyframes measurement-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.measurement-panel__error {
+  margin-bottom: 12px;
+  padding: 12px;
+  border-radius: var(--radius-3);
+  background: var(--red-3);
+  border: 1px solid var(--red-6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.measurement-panel__summary {
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.measurement-panel__summary-card {
+  flex: 1;
+  min-width: 140px;
+  padding: 12px;
+  border-radius: var(--radius-3);
+  background: var(--color-panel-solid);
+  border: 1px solid var(--gray-5);
+}
+
+.measurement-panel__person-pill {
+  align-self: center;
+  justify-content: center;
+}
+
+.measurement-panel__placeholder {
+  padding: 20px;
+  text-align: center;
+  border-radius: var(--radius-3);
+  background: var(--gray-3);
+  border: 1px dashed var(--gray-6);
+}
+
+.measurement-panel__group {
+  margin-bottom: 20px;
+}
+
+.measurement-panel__table {
+  width: 100%;
+}
+
+.measurement-panel__table-wrapper {
+  flex: 1;
+  max-height: 320px;
+  overflow-y: auto;
+  padding-right: 4px;
+  min-height: 0;
+}
+
+.measurement-panel--overlay .measurement-panel__table-wrapper {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.measurement-panel__unit {
+  font-size: 12px;
+  color: var(--gray-11);
+}
+
+/* Scrollbar styling for better UX */
+.measurement-panel__body::-webkit-scrollbar,
+.measurement-panel__table-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.measurement-panel__body::-webkit-scrollbar-track,
+.measurement-panel__table-wrapper::-webkit-scrollbar-track {
+  background: var(--gray-3);
+  border-radius: 4px;
+}
+
+.measurement-panel__body::-webkit-scrollbar-thumb,
+.measurement-panel__table-wrapper::-webkit-scrollbar-thumb {
+  background: var(--gray-8);
+  border-radius: 4px;
+}
+
+.measurement-panel__body::-webkit-scrollbar-thumb:hover,
+.measurement-panel__table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-10);
+}
+
+@media (max-width: 768px) {
+  .measurement-overlay {
+    position: fixed;
+    top: 80px;
+    left: 16px;
+    right: 16px;
+    width: auto;
+    max-height: calc(100% - 120px);
+  }
+
+  .measurement-panel__summary-card {
+    min-width: 120px;
+  }
+}
+

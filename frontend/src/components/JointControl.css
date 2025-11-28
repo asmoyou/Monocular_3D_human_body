@@ -1,0 +1,82 @@
+.joint-control {
+  padding: 0.75rem;
+  background: var(--gray-3);
+  border-radius: var(--radius-2);
+  border: 1px solid var(--gray-5);
+}
+
+.axis-control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.axis-label {
+  width: 20px;
+  text-align: center;
+  font-weight: 600;
+  font-family: monospace;
+}
+
+.axis-x {
+  color: #ff6b6b;
+}
+
+.axis-y {
+  color: #51cf66;
+}
+
+.axis-z {
+  color: #339af0;
+}
+
+.value-display {
+  width: 40px;
+  text-align: right;
+  font-family: monospace;
+  color: var(--gray-11);
+}
+
+.slider-root {
+  position: relative;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  touch-action: none;
+  flex: 1;
+  height: 20px;
+}
+
+.slider-track {
+  background-color: var(--gray-6);
+  position: relative;
+  flex-grow: 1;
+  border-radius: 9999px;
+  height: 4px;
+}
+
+.slider-range {
+  position: absolute;
+  background-color: var(--accent-9);
+  border-radius: 9999px;
+  height: 100%;
+}
+
+.slider-thumb {
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider-thumb:hover {
+  background-color: var(--accent-3);
+}
+
+.slider-thumb:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--accent-a5);
+}
